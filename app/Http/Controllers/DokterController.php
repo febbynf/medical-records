@@ -13,9 +13,9 @@ class DokterController extends Controller
      */
     public function index()
     {
-        return $this->render('dokter.index', [
-            
-        ]);
+        $data_dokter = \DB::table('dokter')->get();
+        // var_dump($data_dokter);die;
+        return view('dokter.index',['data_dokter' => $data_dokter]);
     }
 
     /**

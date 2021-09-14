@@ -1,4 +1,4 @@
-@section('content')
+
   <table>
       <thead>
             <th>b</th>
@@ -7,4 +7,3 @@
           <td>a</td>
       </tbody>
   </table>
-@endsection
