@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('layout/index');
+    return view('auth/login');
 });
 
+// Route::get('/', function () {
+//     return view('layout/index');
+// });
 Route::get('dokter/index','DokterController@index');
 Route::resource('data-dokter', 'DokterController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
