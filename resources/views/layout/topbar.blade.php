@@ -9,18 +9,19 @@
             <a class="navbar-brand" href="index.html">
                 <!-- Logo icon -->
                 <b class="logo-icon p-l-10">
-                    <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+                    <i class="wi wi-sunset"></i>
                     <!-- Dark Logo icon -->
-                    <img src="{{ asset('admin/assets/images/logo-icon.png" alt="homepage" class="light-logo') }}" />
+                    <img src="{{ asset('admin/assets/images/logo-1.png') }}" alt="homepage" class="light-logo" style="width:30px;height:30px;" />
                     
                 </b>
                 <!--End Logo icon -->
                     <!-- Logo text -->
                 <span class="logo-text">
                         <!-- dark Logo text -->
-                        <img src="{{ asset('admin/assets/images/logo-text.png" alt="homepage" class="light-logo') }}" />
+                        
+                        <img src="{{ asset('admin/assets/images/logo-text-1.png') }}" alt="homepage" class="light-logo" style="width:190px;height:50px;"/>
                     
-                </span>
+                </span> 
                 <!-- Logo icon -->
                 <!-- <b class="logo-icon"> -->
                     <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->

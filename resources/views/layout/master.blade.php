@@ -9,14 +9,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    {{-- <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png"> --}}
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/assets/images/favicon.png') }}">
     <title>@yield('judul_halaman')</title>
     <!-- Custom CSS -->
-    {{-- <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet"> --}}
     <link href="{{ asset('admin/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
-    {{-- <link href="dist/css/style.min.css" rel="stylesheet"> --}}
     <link href="{{ asset('admin/dist/css/style.min.css') }}" rel="stylesheet">
 
     
@@ -130,7 +128,10 @@
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ asset('admin/dist/js/pages/chart/chart-page-init.js') }}"></script>
-
+    <script src="{{ asset('admin/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
+    <script src="{{ asset('admin/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
+    <script src="{{ asset('admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+    @stack('js')
 </body>
 
 </html>
