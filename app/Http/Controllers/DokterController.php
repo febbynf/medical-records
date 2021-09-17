@@ -15,7 +15,7 @@ class DokterController extends Controller
     {
         $data_dokter = \DB::table('dokter')->get();
         // var_dump($data_dokter);die;
-        return view('dokter.index',['data_dokter' => $data_dokter]);
+        return view('dokter.index',['data_dokter' => $data_dokter]); 
     }
 
     /**
