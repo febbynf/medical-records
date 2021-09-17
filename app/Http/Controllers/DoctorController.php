@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Doctor;
 use Illuminate\Http\Request;
 
-class DokterController extends Controller
+class DoctorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,9 +14,10 @@ class DokterController extends Controller
      */
     public function index()
     {
-        $data_dokter = \DB::table('dokter')->get();
-        // var_dump($data_dokter);die;
-        return view('dokter.index',['data_dokter' => $data_dokter]); 
+        
+        $doctors = Doctor::all();
+        return view('doctor.index', ['doctors' => $doctors ]);
+        
     }
 
     /**
@@ -25,7 +27,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        return view('dokter.create');
+        return view('doctor.create');
     }
 
     /**
@@ -36,16 +38,25 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $request->validate([
+            'nama_dokter'   => 'required',
+            'sip'           => 'required',
+            'no_telp'       => 'required',
+        ]);
+  
+        Doctor::create($request->all());
+   
+        return redirect()->route('doctor.index')
+            ->with('success','Doctor created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Doctor $doctor)
     {
         //
     }
@@ -53,10 +64,10 @@ class DokterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Doctor $doctor)
     {
         //
     }
@@ -65,10 +76,10 @@ class DokterController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Doctor $doctor)
     {
         //
     }
@@ -76,10 +87,10 @@ class DokterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Doctor $doctor)
     {
         //
     }
