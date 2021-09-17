@@ -85,8 +85,7 @@ class DoctorController extends Controller
             'sip'           => 'required',
             'no_telp'       => 'required',
         ]);
-  
-        Doctor::update($request->all());
+        $doctor->update($request->all());
    
         return redirect()->route('doctor.index')
             ->with('success','Doctor created successfully.');
@@ -100,6 +99,9 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        //
+        $doctor->delete();
+  
+        return redirect()->route('doctor.index')
+                        ->with('success','Product deleted successfully');
     }
 }

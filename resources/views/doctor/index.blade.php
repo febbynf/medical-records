@@ -34,7 +34,7 @@
                             <td>
                                 <a class="btn btn-info btn-sm" href="{{ route('doctor.show',$doctor->id) }}"><i class="fas fa-eye"></i></a>
                                 <a class="btn btn-warning btn-sm" href="{{ route('doctor.edit',$doctor->id) }}"><i class="fas fa-pencil-alt"></i></a>
-                                <a class="btn btn-danger btn-sm" href="{{ route('doctor.index') }}"><i class="fas fa-trash"></i></a>
+                                <a class="btn btn-danger btn-sm" href="{{ route('doctor.destroy',$doctor->id) }}"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach
