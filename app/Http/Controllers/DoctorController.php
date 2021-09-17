@@ -14,7 +14,6 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        
         $doctors = Doctor::all();
         return view('doctor.index', ['doctors' => $doctors ]);
         
@@ -58,7 +57,7 @@ class DoctorController extends Controller
      */
     public function show(Doctor $doctor)
     {
-        //
+        return view('doctor.show',compact('doctor'));
     }
 
     /**
@@ -69,7 +68,7 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
-        //
+        return view('doctor.edit',compact('doctor'));
     }
 
     /**
@@ -81,7 +80,16 @@ class DoctorController extends Controller
      */
     public function update(Request $request, Doctor $doctor)
     {
-        //
+        $request->validate([
+            'nama_dokter'   => 'required',
+            'sip'           => 'required',
+            'no_telp'       => 'required',
+        ]);
+  
+        Doctor::update($request->all());
+   
+        return redirect()->route('doctor.index')
+            ->with('success','Doctor created successfully.');
     }
 
     /**
