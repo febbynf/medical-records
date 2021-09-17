@@ -25,7 +25,7 @@ class DokterController extends Controller
      */
     public function create()
     {
-        //
+        return view('dokter.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class DokterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**

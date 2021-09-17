@@ -18,8 +18,8 @@ Route::get('/', function () {
 // Route::get('/', function () {
 //     return view('layout/index');
 // });
-Route::get('dokter/index','DokterController@index');
-Route::resource('data-dokter', 'DokterController');
+// Route::get('dokter/index','DokterController@index');
+Route::resource('doctor', 'DokterController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
