@@ -1,13 +1,13 @@
 @extends('layout.master')
-@section('judul_halaman','Doctors')
+@section('judul_halaman','Patients')
 
 @section('content')
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
             <div class="card-title">
-                <a class="btn btn-primary btn-md" href="{{ route('doctor.create') }}">
-                    <i class=" fas fa-plus"></i>&nbsp; Create New Doctor
+                <a class="btn btn-primary btn-md" href="{{ route('patient.create') }}">
+                    <i class=" fas fa-plus"></i>&nbsp; Create New Patient
                 </a> 
             </div>
             @if ($message = Session::get('success'))
@@ -20,21 +20,21 @@
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>SIP</th>
                             <th>Telephone</th>
+                            <address>Address</address>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($doctors as $doctor)
+                        @foreach($patients as $patient)
                         <tr>
-                            <td>{{ $doctor->nama_dokter }}</td>
-                            <td>{{ $doctor->sip }}</td>
-                            <td>{{ $doctor->no_telp }}</td>
+                            <td>{{ $patient->nama_pasien }}</td>
+                            <td>{{ $patient->no_telp }}</td>
+                            <td>{{ $patient->alamat }}</td>
                             <td>
-                                <form action="{{ route('doctor.destroy',$doctor->id) }}" method="POST">
-                                    <a class="btn btn-info btn-sm" href="{{ route('doctor.show',$doctor->id) }}"><i class="fas fa-eye"></i></a>
-                                    <a class="btn btn-warning btn-sm" href="{{ route('doctor.edit',$doctor->id) }}"><i class="fas fa-pencil-alt"></i></a>
+                                <form action="{{ route('patient.destroy',$patient->id) }}" method="POST">
+                                    <a class="btn btn-info btn-sm" href="{{ route('patient.show',$patient->id) }}"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning btn-sm" href="{{ route('patient.edit',$patient->id) }}"><i class="fas fa-pencil-alt"></i></a>
                                     @csrf
                                     @method('DELETE')
                                     <button type= "submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>

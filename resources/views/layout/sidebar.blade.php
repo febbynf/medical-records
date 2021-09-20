@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item"> 
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="widgets.html" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/patient')}}" aria-expanded="false">
                         <i class=" fas fa-user"></i>
                         <span class="hide-menu">Patients</span>
                     </a>

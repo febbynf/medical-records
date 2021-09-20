@@ -19,6 +19,7 @@ Route::get('/', function () {
 //     return view('layout/index');
 // });
 Route::resource('doctor', 'DoctorController');
+Route::resource('patient', 'PatientController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -88,7 +88,7 @@ class DoctorController extends Controller
         $doctor->update($request->all());
    
         return redirect()->route('doctor.index')
-            ->with('success','Doctor created successfully.');
+            ->with('success','Doctor updated successfully.');
     }
 
     /**
@@ -99,9 +99,12 @@ class DoctorController extends Controller
      */
     public function destroy(Doctor $doctor)
     {
-        $doctor->delete();
-  
-        return redirect()->route('doctor.index')
-                        ->with('success','Product deleted successfully');
+        try {
+            $doctor->delete();
+            return redirect()->route('doctor.index')->with('success','Doctor deleted successfully');
+        } catch  (\Illuminate\Database\QueryException $ex){
+            return redirect()->route('dokter.index')->with(['error' => 'Gagal Disimpan'.response()->json($ex->getMessage())]);
+        }
+       
     }
 }

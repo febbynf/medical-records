@@ -47,7 +47,7 @@
                     </div>
                     <div class="border-top">
                         <div class="card-body text-right">
-                            <button type="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" class="btn btn-success">Save</button>
                         </div>
                     </div>
                 </form>
