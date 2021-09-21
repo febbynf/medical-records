@@ -21,7 +21,7 @@
                         <tr>
                             <th>Name</th>
                             <th>Telephone</th>
-                            <address>Address</address>
+                            <th>Address</th>
                             <th></th>
                         </tr>
                     </thead>

@@ -25,7 +25,7 @@ class PatientController extends Controller
      */
     public function create()
     {
-        //
+        return view('patient.create');
     }
 
     /**
@@ -36,7 +36,16 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_pasien'   => 'required',
+            'no_telp'       => 'required',
+            'alamat'        => 'required',
+        ]);
+  
+        Patient::create($request->all());
+   
+        return redirect()->route('patient.index')
+            ->with('success','Patient created successfully.');
     }
 
     /**
@@ -47,7 +56,7 @@ class PatientController extends Controller
      */
     public function show(Patient $patient)
     {
-        //
+        return view('patient.show',compact('patient'));
     }
 
     /**
@@ -58,7 +67,7 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        //
+        return view('patient.edit',compact('patient'));
     }
 
     /**
@@ -70,7 +79,15 @@ class PatientController extends Controller
      */
     public function update(Request $request, Patient $patient)
     {
-        //
+        $request->validate([
+            'nama_pasien'   => 'required',
+            'no_telp'       => 'required',
+            'alamat'        => 'required',
+        ]);
+        $patient->update($request->all());
+   
+        return redirect()->route('patient.index')
+            ->with('success','Patient updated successfully.');
     }
 
     /**
@@ -81,6 +98,8 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        $patient->delete();
+        return redirect()->route('patient.index')->with('success','Patient deleted successfully');
+       
     }
 }
