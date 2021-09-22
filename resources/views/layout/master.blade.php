@@ -9,14 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/assets/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('admin/assets/images/logo-1.png') }}">
     <title>@yield('judul_halaman')</title>
     <!-- Custom CSS -->
     <link href="{{ asset('admin/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
     <link href="{{ asset('admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="{{ asset('admin/dist/css/style.min.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/select2/dist/css/select2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/jquery-minicolors/jquery.minicolors.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/quill/dist/quill.snow.css') }}">
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -120,6 +123,8 @@
     <!--This page JavaScript -->
     <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
     <!-- Charts js Files -->
+    <script src="{{ asset('admin/assets/libs/select2/dist/js/select2.full.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/select2/dist/js/select2.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/excanvas.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.pie.js') }}"></script>
@@ -131,6 +136,14 @@
     <script src="{{ asset('admin/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
     <script src="{{ asset('admin/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
     <script src="{{ asset('admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js') }}"></script>
+    <script src="{{ asset('admin/dist/js/pages/mask/mask.init.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/jquery-asColor/dist/jquery-asColor.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/jquery-asGradient/dist/jquery-asGradient.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/jquery-minicolors/jquery.minicolors.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/quill/dist/quill.min.js') }}"></script>
     @stack('js')
 </body>
 

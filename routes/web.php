@@ -20,6 +20,7 @@ Route::get('/', function () {
 // });
 Route::resource('doctor', 'DoctorController');
 Route::resource('patient', 'PatientController');
+Route::resource('medical-record', 'MedicalRecordController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

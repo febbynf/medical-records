@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item"> 
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="tables.html" aria-expanded="false">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/medical-record')}}" aria-expanded="false">
                         <i class="fas fa-file-alt"></i>
                         <span class="hide-menu">Medical Records</span>
                     </a>

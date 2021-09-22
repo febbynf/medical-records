@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-body">
             <div class="card-title">
-                <a class="btn btn-primary btn-md" href="{{ route('medical_record.create') }}">
+                <a class="btn btn-primary btn-md" href="{{ route('medical-record.create') }}">
                     <i class=" fas fa-plus"></i>&nbsp; Create New Medical Record
                 </a> 
             </div>
@@ -22,6 +22,20 @@
                             <th>Doctor</th>
                             <th>Patient</th>
                             <th>Anamnesia</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -46,9 +60,9 @@
                             <td>{{ $medicalRecord->tanggal_pulang }}</td>
                             <td>{{ $medicalRecord->jam_pulang }}</td>
                             <td>
-                                <form action="{{ route('patient.destroy',$patient->id) }}" method="POST">
-                                    <a class="btn btn-info btn-sm" href="{{ route('patient.show',$patient->id) }}"><i class="fas fa-eye"></i></a>
-                                    <a class="btn btn-warning btn-sm" href="{{ route('patient.edit',$patient->id) }}"><i class="fas fa-pencil-alt"></i></a>
+                                <form action="{{ route('medical-record.destroy',$medicalRecord->id) }}" method="POST">
+                                    <a class="btn btn-info btn-sm" href="{{ route('medical-record.show',$medicalRecord->id) }}"><i class="fas fa-eye"></i></a>
+                                    <a class="btn btn-warning btn-sm" href="{{ route('medical-record.edit',$medicalRecord->id) }}"><i class="fas fa-pencil-alt"></i></a>
                                     @csrf
                                     @method('DELETE')
                                     <button type= "submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')"><i class="fas fa-trash"></i></button>
