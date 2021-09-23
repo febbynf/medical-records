@@ -21,8 +21,13 @@ class MedicalRecord extends Model
         'alasan_pulang',
         'obat_pulang',
         'ttd_dokter',
-        'nama_dokter',
+        'dokter',
         'tanggal_pulang',
         'jam_pulang'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo('App\Doctor');
+    }
 }

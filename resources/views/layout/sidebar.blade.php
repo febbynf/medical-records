@@ -28,6 +28,12 @@
                         <span class="hide-menu">Medical Records</span>
                     </a>
                 </li>
+                <li class="sidebar-item"> 
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('')}}" aria-expanded="false">
+                        <i class="fas fa-chart-area"></i>
+                        <span class="hide-menu">Report</span>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

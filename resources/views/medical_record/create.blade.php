@@ -211,11 +211,11 @@
                             <label class="col-sm-3 text-right control-label col-form-label">Nama Dokter</label>
                             <div class="col-md-9">
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="nd1" name="nama_dokter"  value="1" required>
+                                    <input type="radio" class="custom-control-input" id="nd1" name="dokter"  value="1" required>
                                     <label class="custom-control-label" for="nd1">Lengkap</label>
                                 </div>
                                 <div class="custom-control custom-radio">
-                                    <input type="radio" class="custom-control-input" id="nd2" name="nama_dokter"  value="0" required>
+                                    <input type="radio" class="custom-control-input" id="nd2" name="dokter"  value="0" required>
                                     <label class="custom-control-label" for="nd2">Tidak</label>
                                 </div>
                             </div>

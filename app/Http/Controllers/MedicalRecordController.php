@@ -16,7 +16,9 @@ class MedicalRecordController extends Controller
      */
     public function index()
     {
-        $medicalRecords = MedicalRecord::all();
+        $medicalRecords = MedicalRecord::join('doctors', 'medical_records.id_dokter', '=', 'doctors.id')->get();
+        // $medicalRecords = MedicalRecord::with('doctor')->get();
+        // var_dump($medicalRecords);die;
         return view('medical_record.index', ['medicalRecords' => $medicalRecords ]);
     }
 
@@ -58,14 +60,14 @@ class MedicalRecordController extends Controller
             'alasan_pulang'                 => 'required',
             'obat_pulang'                   => 'required',
             'ttd_dokter'                    => 'required',
-            'nama_dokter'                   => 'required',
+            'dokter'                        => 'required',
             'tanggal_pulang'                => 'required',
             'jam_pulang'                    => 'required',
         ]);
   
         MedicalRecord::create($request->all());
    
-        return redirect()->route('medical_record.index')
+        return redirect()->route('medical-record.index')
             ->with('success','Medical Record created successfully.');
     }
 
@@ -115,7 +117,7 @@ class MedicalRecordController extends Controller
             'alasan_pulang'                 => 'required',
             'obat_pulang'                   => 'required',
             'ttd_dokter'                    => 'required',
-            'nama_dokter'                   => 'required',
+            'dokter'                        => 'required',
             'tanggal_pulang'                => 'required',
             'jam_pulang'                    => 'required'
         ]);
