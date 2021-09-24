@@ -44,7 +44,7 @@
                         @foreach($medicalRecords as $medicalRecord)
                         <tr>
                             <td>{{ $medicalRecord->nama_dokter }}</td>
-                            <td>{{ $medicalRecord->id_pasien }}</td>
+                            <td>{{ $medicalRecord->nama_pasien }}</td>
                             <td>{!! $medicalRecord->anamnesia == 1 ? '<i class="fas fa-check-circle" style="color:green;">' : '<i class="fas fa-times-circle" style="color:red;">' !!}</td>
                             <td>{!! $medicalRecord->riwayat_perjalanan_penyakit == 1 ? '<i class="fas fa-check-circle" style="color:green;">' : '<i class="fas fa-times-circle" style="color:red;">' !!}</td>
                             <td>{!! $medicalRecord->pemeriksaan_fisik == 1 ? '<i class="fas fa-check-circle" style="color:green;">' : '<i class="fas fa-times-circle" style="color:red;">'!!}</td>
@@ -62,7 +62,7 @@
                             <td>{!! $medicalRecord->jam_pulang == 1 ? '<i class="fas fa-check-circle" style="color:green;">' : '<i class="fas fa-times-circle" style="color:red;">' !!}</td>
                             <td>
                                 <form action="{{ route('medical-record.destroy',$medicalRecord->id) }}" method="POST">
-                                    <a class="btn btn-info btn-sm" href="{{ route('medical-record.show',$medicalRecord->id) }}"><i class="fas fa-eye"></i></a>
+                                    {{-- <a class="btn btn-info btn-sm" href="{{ route('medical-record.show',$medicalRecord->id) }}"><i class="fas fa-eye"></i></a> --}}
                                     <a class="btn btn-warning btn-sm" href="{{ route('medical-record.edit',$medicalRecord->id) }}"><i class="fas fa-pencil-alt"></i></a>
                                     @csrf
                                     @method('DELETE')

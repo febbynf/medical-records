@@ -6,6 +6,7 @@ use App\MedicalRecord;
 use App\Doctor;
 use App\Patient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class MedicalRecordController extends Controller
 {
@@ -16,8 +17,30 @@ class MedicalRecordController extends Controller
      */
     public function index()
     {
-        $medicalRecords = MedicalRecord::join('doctors', 'medical_records.id_dokter', '=', 'doctors.id')->get();
-        // $medicalRecords = MedicalRecord::with('doctor')->get();
+        // $medicalRecords = MedicalRecord::join('doctors', 'medical_records.id_dokter', '=', 'doctors.id')->get();
+        $medicalRecords = DB::table('medical_records')
+                        ->join('doctors','doctors.id','=','medical_records.id_dokter')
+                        ->join('patients','patients.id','=','medical_records.id_pasien')
+                        ->select('doctors.nama_dokter', 
+                                'patients.nama_pasien',
+                                'medical_records.id',
+                                'medical_records.anamnesia',
+                                'medical_records.riwayat_perjalanan_penyakit',
+                                'medical_records.pemeriksaan_fisik',
+                                'medical_records.penemuan_klinik',
+                                'medical_records.diagnosa',
+                                'medical_records.obat_rs',
+                                'medical_records.tindakan_rs',
+                                'medical_records.kondisi_pulang',
+                                'medical_records.anjuran_kontrol',
+                                'medical_records.alasan_pulang',
+                                'medical_records.obat_pulang',
+                                'medical_records.ttd_dokter',
+                                'medical_records.dokter',
+                                'medical_records.tanggal_pulang',
+                                'medical_records.jam_pulang'
+                                )
+                        ->get();
         // var_dump($medicalRecords);die;
         return view('medical_record.index', ['medicalRecords' => $medicalRecords ]);
     }
@@ -90,7 +113,12 @@ class MedicalRecordController extends Controller
      */
     public function edit(MedicalRecord $medicalRecord)
     {
-        return view('medical_record.edit',compact('medicalRecord'));
+        $dataDoctor = Doctor::pluck('nama_dokter','id');
+        $selectedIdDoc = 0;
+
+        $dataPatient = Patient::pluck('nama_pasien','id');
+        $selectedIdPat = 0;
+        return view('medical_record.edit',compact('dataDoctor','selectedIdDoc', 'dataPatient','selectedIdPat'));
     }
 
     /**
@@ -136,6 +164,6 @@ class MedicalRecordController extends Controller
     public function destroy(MedicalRecord $medicalRecord)
     {
         $medicalRecord->delete();
-        return redirect()->route('medical_record.index')->with('success','Medical Record deleted successfully');
+        return redirect()->route('medical-record.index')->with('success','Medical Record deleted successfully');
     }
 }

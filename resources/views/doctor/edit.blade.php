@@ -1,5 +1,5 @@
 @extends('layout.master')
-@section('judul_halaman','Add New Doctor')
+@section('judul_halaman','Edit Doctor')
 @section('main_halaman','Doctors')
 @section('halaman','Create')
 
