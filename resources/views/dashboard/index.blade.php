@@ -14,7 +14,7 @@
                             <i class="fas fa-user-md fa-3x" style="color:#28b779;"></i>
                         </div>
                         <div class="col-md-6 border-left text-center p-t-10">
-                            <h3 class="mb-0 font-weight-bold">150</h3>
+                            <h3 class="mb-0 font-weight-bold">{{ $countDoc }}</h3>
                             <span class="text-muted">Doctors</span>
                         </div>
                     </div>
@@ -24,10 +24,10 @@
                 <div class="card m-t-0">
                     <div class="row">
                         <div class="col-md-6 text-center p-t-10">
-                            <i class="fas fa-user-md fa-3x" style="color:#27a9e3;"></i>
+                            <i class="fas fa-user fa-3x" style="color:#27a9e3;"></i>
                         </div>
                         <div class="col-md-6 border-left text-center p-t-10">
-                            <h3 class="mb-0 font-weight-bold">4560</h3>
+                            <h3 class="mb-0 font-weight-bold">{{ $countPat }}</h3>
                             <span class="text-muted">Patients</span>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
                 <div class="card m-t-0">
                     <div class="row">
                         <div class="col-md-6 text-center p-t-10">
-                            <i class="fas fa-user-md fa-3x" style="color:#ffb848;"></i>
+                            <i class="fas fa-file-alt fa-3x" style="color:#ffb848;"></i>
                         </div>
                         <div class="col-md-6 border-left text-center p-t-10">
-                            <h3 class="mb-0 ">5672</h3>
+                            <h3 class="mb-0 ">{{ $countMed }}</h3>
                             <span class="text-muted">Medical Records</span>
                         </div>
                     </div>

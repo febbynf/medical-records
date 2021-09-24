@@ -118,7 +118,8 @@ class MedicalRecordController extends Controller
 
         $dataPatient = Patient::pluck('nama_pasien','id');
         $selectedIdPat = 0;
-        return view('medical_record.edit',compact('dataDoctor','selectedIdDoc', 'dataPatient','selectedIdPat'));
+
+        return view('medical_record.edit',compact('dataDoctor','selectedIdDoc', 'dataPatient','selectedIdPat', 'medicalRecord'));
     }
 
     /**
@@ -151,7 +152,7 @@ class MedicalRecordController extends Controller
         ]);
         $medicalRecord->update($request->all());
    
-        return redirect()->route('medical_record.index')
+        return redirect()->route('medical-record.index')
             ->with('success','Medical Record updated successfully.');
     }
 
