@@ -20,6 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/jquery-minicolors/jquery.minicolors.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/quill/dist/quill.snow.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/datetimepicker/bootstrap-datepicker.min.css') }}">
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -156,7 +157,9 @@
     <script src="{{ asset('admin/assets/libs/chart/jquery.flot.pie.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/chart/turning-series.js') }}"></script>
+    <script src="{{ asset('admin/assets/libs/datetimepicker/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('admin/dist/js/pages/chart/chart-page-init.js') }}"></script>
+   
     @stack('js')
 </body>
 

@@ -19,6 +19,7 @@ Route::get('/', function () {
 //     return view('layout/index');
 // });
 Route::resource('doctor', 'DoctorController');
+Route::resource('report', 'ReportController');
 Route::resource('patient', 'PatientController');
 Route::resource('medical-record', 'MedicalRecordController');
 Auth::routes();
