@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('filter', 'ReportController@index_filter')->name('api-filter');
+Route::get('pdf', 'ReportController@pdf_filter')->name('api-pdf');

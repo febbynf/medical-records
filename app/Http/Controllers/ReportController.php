@@ -7,6 +7,7 @@ use App\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use PDF;
 
 class ReportController extends Controller
 {
@@ -26,7 +27,7 @@ class ReportController extends Controller
     public function index_filter(Request $request) {
         $start = $request->get('start');
         $end = $request->get('end');
-        $id_dokter = $request->get('id_dokter');
+        $doctor_name = $request->get('doctor_name');
 
         $start_date = Carbon::createFromFormat('d-m-Y', $start);
         $end_date =  Carbon::createFromFormat('d-m-Y', $end)->addDays(1);
@@ -54,7 +55,7 @@ class ReportController extends Controller
                         'medical_records.tanggal_pulang',
                         'medical_records.jam_pulang',
                         'medical_records.created_at')
-                ->where('doctors.id' ,'=', $id_dokter)
+                ->where('doctors.nama_dokter' ,'like','%'.$doctor_name.'%')
                 ->whereBetween('medical_records.created_at', [ $start_date, $end_date ] )
                 ->get();
         // var_dump($filter);die;
@@ -132,5 +133,45 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         //
+    }
+
+    public function pdf_filter(Request $request) {
+        $start = $request->get('start');
+        $end = $request->get('end');
+        $doctor_name = $request->get('doctor_name');
+
+        $start_date = Carbon::createFromFormat('d-m-Y', $start);
+        $end_date =  Carbon::createFromFormat('d-m-Y', $end)->addDays(1);
+        // var_dump($end_date);die;
+        $filter = DB::table('medical_records')
+                ->join('doctors','doctors.id','=','medical_records.id_dokter')
+                ->join('patients','patients.id','=','medical_records.id_pasien')
+                ->select('doctors.id',
+                        'doctors.nama_dokter', 
+                        'patients.nama_pasien',
+                        'medical_records.id',
+                        'medical_records.anamnesia',
+                        'medical_records.riwayat_perjalanan_penyakit',
+                        'medical_records.pemeriksaan_fisik',
+                        'medical_records.penemuan_klinik',
+                        'medical_records.diagnosa',
+                        'medical_records.obat_rs',
+                        'medical_records.tindakan_rs',
+                        'medical_records.kondisi_pulang',
+                        'medical_records.anjuran_kontrol',
+                        'medical_records.alasan_pulang',
+                        'medical_records.obat_pulang',
+                        'medical_records.ttd_dokter',
+                        'medical_records.dokter',
+                        'medical_records.tanggal_pulang',
+                        'medical_records.jam_pulang',
+                        'medical_records.created_at')
+                ->where('doctors.nama_dokter','like','%'.$doctor_name.'%')
+                ->whereBetween('medical_records.created_at', [ $start_date, $end_date ] )
+                ->get();
+        // var_dump($filter);die;
+        $pdf = PDF::loadView('report.pdf',compact('filter','doctor_name','start_date','end_date'))
+                ->setPaper('a4', 'landscape');
+        return $pdf->stream('medical_record.pdf');
     }
 }

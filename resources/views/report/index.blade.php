@@ -6,12 +6,13 @@
     <div class="card">
         <div class="card-body">
             <h5 class="card-title m-b-0"></h5>
-            <div class="row mb-3" style="margin-left:100px">
+            <div class="row mb-3" style="margin-left:80px">
                 <div class="col-lg-4">
                     <label>Doctor</label>
                     <select class="select2 form-control custom-select doctor-select2" id="id_dokter" name="id_dokter">
+                        <option value ="">Semua dokter</option>
                         @foreach ($dataDoctor as $dokter_id => $dokter_nama)
-                        <option value="{{ $dokter_id }}" {{ ( $dokter_id == $selectedIdDoc) ? 'selected' : '' }}>
+                        <option value="{{ $dokter_nama }}" {{ ( $dokter_id == $selectedIdDoc) ? 'selected' : '' }}>
                             {{ $dokter_nama }}
                         </option>
                         @endforeach                   
@@ -28,6 +29,7 @@
                 <div class="col-lg-2">
                     <br />
                     <button class="btn btn-success btn-lg" onclick="getFilter();"><i class="fas fa-filter"></i></button>
+                    <button class="btn btn-danger btn-lg" onclick="getPdf();"><i class="far fa-file-pdf"></i></button>
                 </div>
             </div>
             <div class="table-responsive">
@@ -58,25 +60,30 @@
         todayHighlight: true,
     });
 
+    $("#id_dokter").select2({
+        placeholder: "Pilih Dokter"
+            
+    });
+
     function getFilter(){
-        var doctor = document.getElementById("id_dokter").value;
-        var startDate = document.getElementById("start_date").value;
-        var endDate = document.getElementById("end_date").value;
+        var doctor = $("#id_dokter").val();
+        var startDate = $("#start_date").val();
+        var endDate = $("#end_date").val();
         // console.log(endDate);
 
         jQuery.ajax({
             type: "GET",
             url: "{{ route('api-filter') }}",
-            data: {id_dokter:doctor, start:startDate, end:endDate},
+            data: {doctor_name:doctor, start:startDate, end:endDate},
             success: function (data) {
                 
             $("#filter").empty()
             console.log(data.values)
             data.values.forEach(dataFilter => {
                 $("#filter").append("<tr><td class=id>" + dataFilter.nama_dokter + "</td>\
-                <td class=siswa_nama>"   + dataFilter.nama_pasien + "</td>\
-                <td class=siswa_alamat>" + dataFilter.anamnesia + "</td>\
-                <td><button class=ubah>Ubah</button></td>");
+                <td class=nama_pasien>" + dataFilter.nama_pasien + "</td>\
+                <td class=status>" + dataFilter.anamnesia + "</td>\
+                <td><a class='btn btn-info btn-md'> <span style='color: white;'><i class='fas fa-eye'></i></span></a></td>");
                     }
                 );
             },
@@ -84,7 +91,16 @@
         })    
     }
 
-  
+    function getPdf(){
+        var doctor = $("#id_dokter").val();
+        var startDate = $("#start_date").val();
+        var endDate = $("#end_date").val();
+        var base =  "{{ route('api-pdf') }}";
+        var url = "?doctor_name=" + doctor + "&start=" + startDate + "&end=" + endDate;
+        // console.log(endDate);
+        window.open (base+url , "_blank" );
+    }
+
     $('#zero_config').DataTable({
                     "bLengthChange": false,
                     "bFilter": false,

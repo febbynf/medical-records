@@ -25,3 +25,4 @@ Route::resource('medical-record', 'MedicalRecordController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/pdf', 'ReportController@pdf_filter')->name('pdf-filter');
