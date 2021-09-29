@@ -143,7 +143,7 @@ class ReportController extends Controller
         $start_date = Carbon::createFromFormat('d-m-Y', $start);
         $end_date =  Carbon::createFromFormat('d-m-Y', $end)->addDays(1);
         // var_dump($end_date);die;
-        $filter = DB::table('medical_records')
+        $medical_records = DB::table('medical_records')
                 ->join('doctors','doctors.id','=','medical_records.id_dokter')
                 ->join('patients','patients.id','=','medical_records.id_pasien')
                 ->select('doctors.id',
@@ -170,7 +170,7 @@ class ReportController extends Controller
                 ->whereBetween('medical_records.created_at', [ $start_date, $end_date ] )
                 ->get();
         // var_dump($filter);die;
-        $pdf = PDF::loadView('report.pdf',compact('filter','doctor_name','start_date','end_date'))
+        $pdf = PDF::loadView('report.pdf',compact('medical_records','doctor_name','start_date','end_date'))
                 ->setPaper('a4', 'landscape');
         return $pdf->stream('medical_record.pdf');
     }

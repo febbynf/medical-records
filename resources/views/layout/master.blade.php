@@ -94,7 +94,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                    copyright © <script> document.write(new Date().getFullYear()); </script> - Developed System by <b><a href="https://github.com/febbynf" target="_blank">Febby Nurfitriyani</a></b>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->

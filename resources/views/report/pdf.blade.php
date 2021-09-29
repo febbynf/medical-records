@@ -64,25 +64,61 @@
               text-align: center;
               margin: 0 0 10px 0;
             }
-
-      
-            #project span {
-              color: black;
-              margin-right: 10px;
-              display: inline-block;
-              line-height: 0em;
-            }
-
-
-            #project strong {
-              line-height: 2em;
-              text-align: right;
-            }
-      
-            #project div,
           
             #company div {
               white-space: nowrap;        
+            }
+
+            table {
+              width: 100%;
+              border-collapse: collapse;
+              border-spacing: 0;
+              margin-bottom: 20px;
+            }
+      
+            table tr:nth-child(2n-1) td {
+              background: #F5F5F5;
+            }
+      
+            table th,
+            table td {
+              text-align: center;
+            }
+      
+            table th {
+              padding: 5px 20px;
+              color: black;
+              border-bottom: 1px solid #C1CED9;
+              white-space: nowrap;        
+              font-weight: normal;
+            }
+      
+            table .yarn,
+            table .desc {
+              text-align: left;
+              /* font-size: 1.2em; */
+            }
+      
+            table td {
+              padding: 10px;
+              text-align: right;
+            }
+      
+            table td.yarn,
+            table td.desc {
+              vertical-align: top;
+            }
+      
+            table td.unit,
+            table td.qty,
+            table td.total,
+            table td.percentage, {
+              /* font-size: 1.2em; */
+              text-align: center;
+            }
+      
+            table td.grand {
+              border-top: 1px solid black;
             }
 
             .sample {
@@ -96,12 +132,6 @@
 
             .text {
               text-align: center;
-            }
-      
-            #notices .notice {
-              color: black;
-              font-size: 1.2em;
-              margin-left: 25px;
             }
       
             footer {
@@ -123,34 +153,46 @@
             <img src="{{ public_path('admin/assets/images/logo-1.png')}}">
             <img src="{{ public_path('admin/assets/images/logo-text-1.png')}}">
         </div>
-
         <div id="index">
-            No Index : {{ $doctor_name}}
+            Date : {{ \Carbon\Carbon::parse($start_date)->format('j F Y') }}
         </div>
-
         <div id="title">
             <h1>Medical Record</h1>
-            <h4> Outpatient Patients Card</h4>
+            {{-- <h4>Outpatient Patients Card</h4> --}}
         </div>
-        
-        <div id="project">
-        <div><span>Name</span><strong>-</strong></div>
-          <div><span>Address</span><strong> COTTON COMBED FRENCH TERRY</strong></div>
-          <div><span>Telephone</span><strong> 34" / 186</strong></div>
-        </div>
-      </header>
-      <main>
-        <div id="notices">
-            <div>Date : {{ $start_date }}</div>
-        </div>
-
-        <div id="notices" class="text">
-          <div class="sample">
-          </div>
-        </div>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                <th class="yarn">Doctor</th>
+                <th>Patient</th>
+                <th>Anamnesia</th>
+                <th>History of Disease</th>
+                <th>Physical Examination</th>
+                <th>Clinical Findings</th>
+                <th>Diagnosis</th>
+                <th>Medicine</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($medical_records as $medical_record)
+                <tr>
+                    <td class="yarn">{{ $medical_record->nama_dokter }}</td>
+                    <td class="percentage">{{ $medical_record->nama_pasien }}</td>
+                    <td class="total">{!! $medical_record->anamnesia == 1 ? '<span style="font-family: DejaVu Sans; font-size:12px;">✓</span>' :  '<span style="font-family: DejaVu Sans; font-size:12px;">⨯</span>' !!}</td>
+                    <td class="unit">{!! $medical_record->riwayat_perjalanan_penyakit == 1 ? '<span style="font-family: DejaVu Sans; font-size:12px;">✓</span>' :  '<span style="font-family: DejaVu Sans; font-size:12px;">⨯</span>' !!}</td>
+                    <td class="total">{!! $medical_record->pemeriksaan_fisik == 1 ? '<span style="font-family: DejaVu Sans; font-size:12px;">✓</span>' :  '<span style="font-family: DejaVu Sans; font-size:12px;">⨯</span>' !!}</td>
+                    <td class="unit">{!! $medical_record->penemuan_klinik == 1 ? '<span style="font-family: DejaVu Sans; font-size:12px;">✓</span>' :  '<span style="font-family: DejaVu Sans; font-size:12px;">⨯</span>' !!}</td>
+                    <td class="total">{!! $medical_record->diagnosa == 1 ? '<span style="font-family: DejaVu Sans; font-size:12px;">✓</span>' :  '<span style="font-family: DejaVu Sans; font-size:12px;">⨯</span>' !!}</td>
+                    <td class="total">{!! $medical_record->obat_rs == 1 ? '<span style="font-family: DejaVu Sans; font-size:12px;">✓</span>' :  '<span style="font-family: DejaVu Sans; font-size:12px;">⨯</span>' !!}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
       </main>
       <footer>
-        Document was created on a computer and is valid without the signature and seal.
+        copyright © <script> document.write(new Date().getFullYear()); </script> - Developed System by<b><a href="https://github.com/febbynf" target="_blank">Febby Nurfitriyani</a></b>
       </footer>
     </body>
   </html>
