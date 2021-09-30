@@ -61,7 +61,7 @@
     });
 
     $("#id_dokter").select2({
-        placeholder: "Pilih Dokter"
+        
             
     });
 
