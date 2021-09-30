@@ -51,89 +51,57 @@
     <!-- ============================================================== -->
     <!-- Sales chart -->
     <!-- ============================================================== -->
-    <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Bar Chart</h5>
-                        <div class="flot-chart">
-                            <div class="flot-chart-content" id="flot-line-chart"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <div class="d-md-flex align-items-center">
-                        <div>
-                            <h4 class="card-title">Site Analysis</h4>
-                            <h5 class="card-subtitle">Overview of Latest Month</h5>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <!-- column -->
-                        <div class="col-lg-9">
-                            <div class="flot-chart">
-                                <div class="flot-chart-content" id="flot-line-chart"></div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="bg-dark p-10 text-white text-center">
-                                        <i class="fa fa-user m-b-5 font-16"></i>
-                                        <h5 class="m-b-0 m-t-5">2540</h5>
-                                        <small class="font-light">Total Users</small>
-                                    </div>
-                                </div>
-                                    <div class="col-6">
-                                    <div class="bg-dark p-10 text-white text-center">
-                                        <i class="fa fa-plus m-b-5 font-16"></i>
-                                        <h5 class="m-b-0 m-t-5">120</h5>
-                                        <small class="font-light">New Users</small>
-                                    </div>
-                                </div>
-                                <div class="col-6 m-t-15">
-                                    <div class="bg-dark p-10 text-white text-center">
-                                        <i class="fa fa-cart-plus m-b-5 font-16"></i>
-                                        <h5 class="m-b-0 m-t-5">656</h5>
-                                        <small class="font-light">Total Shop</small>
-                                    </div>
-                                </div>
-                                    <div class="col-6 m-t-15">
-                                    <div class="bg-dark p-10 text-white text-center">
-                                        <i class="fa fa-tag m-b-5 font-16"></i>
-                                        <h5 class="m-b-0 m-t-5">9540</h5>
-                                        <small class="font-light">Total Orders</small>
-                                    </div>
-                                </div>
-                                <div class="col-6 m-t-15">
-                                    <div class="bg-dark p-10 text-white text-center">
-                                        <i class="fa fa-table m-b-5 font-16"></i>
-                                        <h5 class="m-b-0 m-t-5">100</h5>
-                                        <small class="font-light">Pending Orders</small>
-                                    </div>
-                                </div>
-                                <div class="col-6 m-t-15">
-                                    <div class="bg-dark p-10 text-white text-center">
-                                        <i class="fa fa-globe m-b-5 font-16"></i>
-                                        <h5 class="m-b-0 m-t-5">8540</h5>
-                                        <small class="font-light">Online Orders</small>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- column -->
-                    </div>
+                    <h5 class="card-title">Medical Record</h5>
+                    <canvas id="myChart" height="450" width="600"></canvas>
                 </div>
             </div>
         </div>
     </div>
+    
+   
     <!-- ============================================================== -->
     <!-- Sales chart -->
     <!-- ============================================================== -->
 </div>
 @endsection
+@push('js')
+<script>
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels:  {!!json_encode($labels)!!},
+        datasets: [{
+            label: '# of Votes',
+            data: {!! json_encode($chart->dataset)!!} ,
+            backgroundColor: {!! json_encode($chart->colours)!!} ,
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+    
+</script>
+@endpush

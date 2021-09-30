@@ -133,7 +133,7 @@
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.stack.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
-    <script src="{{ asset('admin/dist/js/pages/chart/chart-page-init.js') }}"></script>
+    {{-- <script src="{{ asset('admin/dist/js/pages/chart/chart-page-init.js') }}"></script> --}}
     <script src="{{ asset('admin/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
     <script src="{{ asset('admin/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
     <script src="{{ asset('admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
@@ -145,20 +145,21 @@
     <script src="{{ asset('admin/assets/libs/jquery-minicolors/jquery.minicolors.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/quill/dist/quill.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/libs/chart/matrix.interface.js') }}"></script>
-    <script src="{{ asset('admin/assets/libs/chart/excanvas.min.js') }}"></script>
+    {{-- <script src="{{ asset('admin/assets/libs/chart/matrix.interface.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/assets/libs/chart/excanvas.min.js') }}"></script> --}}
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.pie.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.time.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.stack.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot/jquery.flot.crosshair.js') }}"></script>
-    <script src="{{ asset('admin/assets/libs/chart/jquery.peity.min.js') }}"></script>
-    <script src="{{ asset('admin/assets/libs/chart/matrix.charts.js') }}"></script>
+    {{-- <script src="{{ asset('admin/assets/libs/chart/jquery.peity.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('admin/assets/libs/chart/matrix.charts.js') }}"></script> --}}
     <script src="{{ asset('admin/assets/libs/chart/jquery.flot.pie.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/chart/turning-series.js') }}"></script>
     <script src="{{ asset('admin/assets/libs/datetimepicker/bootstrap-datepicker.js') }}"></script>
     <script src="{{ asset('admin/dist/js/pages/chart/chart-page-init.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    
     @stack('js')
 </body>
