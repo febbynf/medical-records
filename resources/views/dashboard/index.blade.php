@@ -49,7 +49,7 @@
         
         </div>
     <!-- ============================================================== -->
-    <!-- Sales chart -->
+    <!-- chart -->
     <!-- ============================================================== -->
  
     <div class="row">
@@ -57,7 +57,7 @@
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Medical Record</h5>
-                    <canvas id="myChart" height="450" width="600"></canvas>
+                    <canvas id="myChart" height="100"></canvas>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
     
    
     <!-- ============================================================== -->
-    <!-- Sales chart -->
+    <!-- chart -->
     <!-- ============================================================== -->
 </div>
 @endsection
@@ -79,8 +79,8 @@ var myChart = new Chart(ctx, {
         labels:  {!!json_encode($labels)!!},
         datasets: [{
             label: '# of Votes',
-            data: {!! json_encode($chart->dataset)!!} ,
-            backgroundColor: {!! json_encode($chart->colours)!!} ,
+            data: {!! json_encode($dataset)!!} ,
+            backgroundColor: {!! json_encode($colours)!!} ,
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -95,7 +95,7 @@ var myChart = new Chart(ctx, {
     options: {
         scales: {
             y: {
-                beginAtZero: true
+                beginAtZero: true,
             }
         }
     }

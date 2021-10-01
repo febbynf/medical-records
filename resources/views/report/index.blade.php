@@ -20,11 +20,11 @@
                 </div>
                 <div class="col-lg-3">
                     <label>Start Date <small class="text-muted">dd/mm/yyyy</small></label>
-                    <input type="text" class="form-control datepicker" id="start_date">
+                    <input type="text" class="form-control datepicker" id="start_date" required="">
                 </div>
                 <div class="col-lg-3">
                     <label>End Date <small class="text-muted">dd/mm/yyyy</small></label>
-                    <input type="text" class="form-control datepicker" id="end_date">
+                    <input type="text" class="form-control datepicker" id="end_date" required="">
                 </div>
                 <div class="col-lg-2">
                     <br />

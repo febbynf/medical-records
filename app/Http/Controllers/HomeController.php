@@ -31,24 +31,30 @@ class HomeController extends Controller
         $countPat = Patient::all()->count();
         $countMed = MedicalRecord::all()->count();
 
-        $groups = DB::table('medical_records')
-                  ->select('riwayat_perjalanan_penyakit', DB::raw('count(*) as total'))
-                  ->groupBy('riwayat_perjalanan_penyakit')
-                  ->pluck('total', 'riwayat_perjalanan_penyakit')->all();
+        // $groups = DB::table('medical_records')
+        //           ->select('riwayat_perjalanan_penyakit', DB::raw('count(*) as total'))
+        //           ->groupBy('riwayat_perjalanan_penyakit')
+        //           ->pluck('total', 'riwayat_perjalanan_penyakit')->all();
         // var_dump($groups);die;
-        for ($i=0; $i<=count($groups); $i++) {
+        // for ($i=0; $i<=count($groups); $i++) {
+        //             $colours[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        //         }
+        // $labels = (array_keys($groups));
+        // $dataset = (array_values($groups));
+        $labels = ['Anamnesia','Riwayat Perjalanan Penyakit', 'Pemeriksaan Fisik', 
+                    'Penemuan Klinik', 'Diagnosa', 'Obat RS', 'Tindakan RS', 
+                    'Kondisi Pulang', 'Anjuran Kontrol'];
+        for ($i=0; $i<=count($labels); $i++) {
                     $colours[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
                 }
-        // Prepare the data for returning with the view
-        $labels = (array_keys($groups));
-        $dataset = (array_values($groups));
+        for ($i=0; $i<=count($labels); $i++) {
+                    $datatset[] = rand(1,30);
+                }
+        $dataset = $datatset;
         $colours = $colours;
-        $chart = new MedicalRecord();
-                $chart->labels = (array_keys($groups));
-                $chart->dataset = (array_values($groups));
-                $chart->colours = $colours;
+       
 
-        return view('dashboard.index', compact('countDoc','countPat','countMed', 'chart', 'labels', 'dataset', 'colours'));
+        return view('dashboard.index', compact('countDoc','countPat','countMed', 'labels', 'dataset', 'colours'));
         // return view('home');
     }
 }
