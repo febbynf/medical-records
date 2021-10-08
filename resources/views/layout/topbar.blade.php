@@ -6,7 +6,7 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="{{url('/home')}}">
                 <!-- Logo icon -->
                 <b class="logo-icon p-l-10">
                     <i class="wi wi-sunset"></i>
